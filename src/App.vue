@@ -1,9 +1,31 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <el-config-provider :locale="zhCn">
+      <router-view></router-view>
+    </el-config-provider>
   </div>
-  <router-view />
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
-<style lang="less"></style>
+export default defineComponent({
+  name: 'App',
+  props: {
+    name: {
+      type: String
+    }
+  },
+  setup() {
+    return {
+      zhCn
+    }
+  }
+})
+</script>
+
+<style lang="less">
+.app {
+  height: 100%;
+}
+</style>
